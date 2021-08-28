@@ -90,7 +90,7 @@ c('.pizzaInfo--addButton').addEventListener('click',() =>{
     
     let key = cart.findIndex((item)=>item.identifier == identifier ); 
 
-    if (key != -1){
+    if (key != -1){ 
 cart[key].qt += modalQt;
     }else{
         cart.push({
@@ -100,7 +100,16 @@ cart[key].qt += modalQt;
             qt:modalQt
         });
     }
-
-   
+    updateCart();
    closeModal();
 });
+
+function updateCart() {
+
+    if(cart.length > 0){
+c('aside').classList.add('show');
+    }else{
+        c('aside').classList.remove('show');
+    }
+
+}
